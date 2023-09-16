@@ -83,6 +83,12 @@ input {
   /* visibility: hidden; */
 }
 
+.container .formDiv .dateErrorText {
+  color: var(--red);
+  position: absolute;
+  /* font-size: 0.8rem; */
+}
+
 .container .buttonDiv .arrowImg {
   padding: 1.2rem;
   width: 2.5rem;
