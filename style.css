@@ -18,15 +18,19 @@ body {
   display: grid;
   place-items: center;
   height: 100vh;
+  background: var(--Off_white);
 }
 
 .container {
-  background-color: aquamarine;
+  background-color: var(--White);
+  border-radius: 15px 15px 150px 15px;
   width: 50%;
+  padding: 0.8rem 0;
 }
 
-.container .form {
-  padding: 2rem;
+.container .formDiv,
+.ageTextDiv {
+  padding: 0rem 2rem;
 }
 
 .container .inputSection {
@@ -39,11 +43,88 @@ body {
   flex-direction: column;
 }
 
-.container .inputSection .inputDiv input {
-  width: 100px;
+.container .inputSection .inputDiv label {
+  font-size: 15px;
+  font-weight: 500;
+}
+
+input {
+  width: 80px;
   padding: 0.6rem;
-  border-radius: 4px;
-  border: 0.5px solid;
+  border-radius: 7px;
+  font-weight: 800;
+  outline: none;
+  font-size: 1.3rem;
+  border: 1.5px solid var(--Light_grey);
+}
+
+input::placeholder {
+  color: var(--Light_grey);
+}
+/* input:focus,
+input:active {
+  border: 1.5px solid var(--Off_black);
+} */
+
+.red-border {
+  border: 1.5px solid var(--red);
+}
+
+.hidden {
+  visibility: hidden;
+}
+
+.container .buttonDiv {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+
+.container .buttonDiv .line {
+  border-bottom: 1px solid var(--Light_grey);
+  width: 90%;
+}
+
+.container .formDiv .inputDiv .errorText {
+  color: var(--red);
+  position: relative;
+  font-size: 0.8rem;
+  /* visibility: hidden; */
+}
+
+.container .formDiv .dateErrorText {
+  color: var(--red);
+  position: absolute;
+  /* font-size: 0.8rem; */
+}
+
+.container .buttonDiv .arrowImg {
+  padding: 1.2rem;
+  width: 2.5rem;
+  height: 2.5rem;
+  background-color: var(--Purple);
+  border-radius: 50%;
+  transition: background-color 300ms ease-in-out;
+}
+.container .buttonDiv .arrowImg:hover {
+  background-color: var(--Off_black);
+}
+
+.ageTextDiv {
+  display: flex;
+  font-style: italic;
+  flex-direction: column;
+  padding: 0 2rem;
+}
+
+.ageTextDiv .ageh1,
+.ageNo {
+  font-size: 4rem;
+}
+
+.ageTextDiv .ageNo {
+  color: var(--Purple);
 }
 
 .attribution {
@@ -55,29 +136,62 @@ body {
 
 .attribution a {
   color: hsl(228, 45%, 44%);
+  font-size: 0.7rem;
+}
+
+@media (max-width: 820px) {
+  /* * {
+    font-size: 13px;
+  } */
+  .container {
+    width: 80%;
+    padding: 3rem 0rem;
+    border-radius: 15px 15px 100px 100px;
+  }
+  .container .inputSection {
+    justify-content: center;
+  }
+  .container .inputSection .inputDiv {
+    align-items: center;
+  }
+
+  .container .buttonDiv {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    gap: 1rem;
+    margin: 2rem 0;
+  }
+
+  input {
+    text-align: center;
+  }
+
+  .container .formDiv .inputDiv .errorText {
+    text-align: center;
+  }
+
+  .ageTextDiv {
+    align-items: center;
+    padding: 0.5rem 2rem;
+  }
+
+  .ageTextDiv .ageh1,
+  .ageNo {
+    font-size: 3rem;
+  }
 }
 
 @media (max-width: 480px) {
   * {
-    font-size: 10px;
+    font-size: 14px;
   }
+
   .container {
     width: 90%;
   }
-}
-
-@media (max-width: 768px) {
-  * {
-    font-size: 12px;
-  }
-  .container {
-    width: 80%;
-  }
 
   .container .inputSection .inputDiv input {
-    width: 100px;
-    padding: 0.6rem;
-    border-radius: 4px;
-    border: 0.5px solid;
+    width: 50px;
   }
 }

@@ -18,26 +18,66 @@
   </head>
   <body>
     <section class="container">
-      <div class="form">
-        <form action="" method="get">
-          <div class="inputSection">
-            <div class="inputDiv">
-              <label for="dayinput">DAY</label>
-              <input type="text" name="dayinput" id="dayinput" />
-            </div>
-            <div class="inputDiv">
-              <label for="monthinput">MONTH</label>
-              <input type="text" name="monthinput" id="monthinput" />
-            </div>
-            <div class="inputDiv">
-              <label for="yearinput">YEAR</label>
-              <input type="text" name="yearinput" id="yearinput" />
-            </div>
+      <div class="formDiv">
+        <div class="inputSection">
+          <div class="inputDiv">
+            <label for="dayinput">DAY</label>
+            <input
+              class=""
+              type="number"
+              name="dayinput"
+              id="dayinput"
+              placeholder="DD"
+            />
+            <span class="errorText" id="dayError">Enter a valid Day</span>
           </div>
-          <div class="buttonDiv">
-            <button type="submit">&#8595;</button>
+          <div class="inputDiv">
+            <label for="monthinput">MONTH</label>
+            <input
+              class=""
+              type="number"
+              name="monthinput"
+              id="monthinput"
+              placeholder="MM"
+            />
+            <span class="errorText" id="monthError">Enter a valid Month</span>
           </div>
-        </form>
+          <div class="inputDiv">
+            <label for="yearinput">YEAR</label>
+            <input
+              class=""
+              type="number"
+              name="yearinput"
+              id="yearinput"
+              placeholder="YYYY"
+            />
+            <span class="errorText" id="yearError">Enter a valid Year</span>
+          </div>
+        </div>
+        <span class="dateErrorText" id="dateError">Enter a valid Date</span>
+        <div class="buttonDiv">
+          <div class="line"></div>
+          <img
+            class="arrowImg"
+            id="submitBtn"
+            src="./assets/images/icon-arrow.svg"
+            alt="arrowDown"
+          />
+        </div>
+      </div>
+      <div class="ageTextDiv">
+        <h1 class="ageh1">
+          <span class="ageNo" id="outputYear"></span>
+          years
+        </h1>
+        <h1 class="ageh1">
+          <span class="ageNo" id="outputMonth"></span>
+          months
+        </h1>
+        <h1 class="ageh1">
+          <span class="ageNo" id="outputDay"></span>
+          days
+        </h1>
       </div>
     </section>
 
@@ -47,5 +87,6 @@
         >Frontend Mentor</a
       >. Coded by <a href="#">Raj Shinde</a>.
     </div>
+    <script src="script.js"></script>
   </body>
 </html>
