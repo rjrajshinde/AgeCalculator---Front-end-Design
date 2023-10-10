@@ -48,8 +48,6 @@ document.addEventListener("DOMContentLoaded", function () {
   yearInput.addEventListener("input", () => {
     const yearValue = yearInput.value;
     const noSpaceYearValue = yearValue.replace(/\D/g, "");
-    // console.log("typeof", typeof noSpaceYearValue);
-    // console.log("length", noSpaceYearValue.length);
 
     if (
       yearValue <= 0 ||
@@ -75,8 +73,6 @@ document.addEventListener("DOMContentLoaded", function () {
     const monthValue = monthInput.value;
     const yearValue = yearInput.value;
 
-    console.log("lenght----dayvalue", dayValue.length);
-
     if (
       isNaN(dayValue) ||
       isNaN(monthValue) ||
@@ -89,7 +85,10 @@ document.addEventListener("DOMContentLoaded", function () {
       yearValue.length !== 4 ||
       parseInt(yearValue) > todaysYear
     ) {
-      console.log("exited from functions");
+      console.log("Exit");
+      document.getElementById("outputYear").textContent = "__";
+      document.getElementById("outputMonth").textContent = "__";
+      document.getElementById("outputDay").textContent = "__";
       return; // Exit the function
     }
 
@@ -111,14 +110,6 @@ document.addEventListener("DOMContentLoaded", function () {
     const noSpaceYearValue = yearValue.replace(/\D/g, "");
 
     // year is not greater than todays year validation and year must be 4 digits only
-
-    console.log("todayyear--", todaysYear, "--inputyear---", yearValue);
-    console.log(
-      "todaysyear in submit butn event----",
-      typeof yearValue,
-      "--",
-      typeof todaysYear
-    );
     if (
       yearValue <= 0 ||
       yearValue == "" ||
@@ -182,22 +173,9 @@ document.addEventListener("DOMContentLoaded", function () {
       yearInput.classList.remove("red-border");
       dateError.style.visibility = "hidden";
     }
-    console.log(
-      "todaysDate---",
-      todaysDay + "-" + todaysMonth + "-" + todaysYear
-    );
-    console.log(
-      "inputDate---",
-      dayIntValue + "/" + monthIntValue + "/" + yearIntValue
-    );
 
     let currentDate = todaysYear + "-" + todaysMonth + "-" + todaysDay;
     let inputDate = yearIntValue + "-" + monthIntValue + "-" + dayIntValue;
-
-    console.log("----", currentDate, "-------", inputDate);
-    // const dateCurrent = new Date(currentDate);
-    // const dateInput = new Date(inputDate);
-    // console.log("----", dateCurrent, "-------", dateInput);
 
     function calculateAge(birthdate, referenceDate) {
       const birthDateObj = new Date(birthdate);
@@ -215,11 +193,6 @@ document.addEventListener("DOMContentLoaded", function () {
       // Calculate the difference in days
       let ageDays = referenceDateObj.getDate() - birthDateObj.getDate();
 
-      console.log("lllllll", referenceDateObj.getDate());
-      console.log(
-        "------dfsd",
-        referenceDateObj.getDate() - birthDateObj.getDate()
-      );
       // Adjust for negative ageMonths or ageDays
       if (ageDays < 0) {
         const lastDayOfMonth = new Date(
@@ -227,7 +200,7 @@ document.addEventListener("DOMContentLoaded", function () {
           referenceDateObj.getMonth(),
           0
         ).getDate();
-        console.log("00000000", lastDayOfMonth);
+
         ageDays += lastDayOfMonth;
         ageMonths--;
       }
@@ -239,9 +212,6 @@ document.addEventListener("DOMContentLoaded", function () {
       return { years: ageYears, months: ageMonths, days: ageDays };
     }
     const age = calculateAge(inputDate, currentDate);
-    console.log(
-      `king----Age: ${age.years} years, ${age.months} months, ${age.days} days`
-    );
 
     if (
       age.years !== NaN ||
